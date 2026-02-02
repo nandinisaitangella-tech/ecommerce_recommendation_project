@@ -1,0 +1,13 @@
+# VS Code
+.vscode/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Python cache
+__pycache__/
+
+# OS files
+.DS_Store
+Thumbs.db
+data/e_commerce_shopper_behaviour_and_lifestyle.csv
