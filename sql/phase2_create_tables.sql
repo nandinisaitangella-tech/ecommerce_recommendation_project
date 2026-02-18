@@ -1,4 +1,4 @@
- CREATE TABLE IF NOT EXISTS products (
+CREATE OR REPLACE TABLE products (
     id INT,
     title TEXT,
     price DOUBLE PRECISION,
@@ -7,38 +7,14 @@
 );
 
 
-COPY products (id, title, price, description, category)
-FROM 'C:/Users/Nandini/OneDrive/ecommerce_recommendation_project/data/products.csv'
-DELIMITER ','
-CSV HEADER;
 
-
-SELECT COUNT(*) FROM products;
-
-SELECT * FROM products LIMIT 5;
-
-DROP TABLE IF EXISTS customer_behavior_raw;
-
-CREATE TABLE customer_behavior_raw (
+CREATE OR REPLACE TABLE customer_behavior_raw (
     row_data TEXT
 );
 
 
-COPY customer_behavior_raw
-FROM 'C:/Users/Nandini/OneDrive/ecommerce_recommendation_project/data/e_commerce_shopper_behaviour_and_lifestyle.csv'
-(FORMAT text);
 
-
-SELECT COUNT(*) FROM customer_behavior_raw;
-
-SELECT LEFT(row_data, 200)
-FROM customer_behavior_raw
-LIMIT 1;
-
-
-DROP TABLE IF EXISTS customer_behavior_clean;
-
-CREATE TABLE customer_behavior_clean (
+CREATE OR REPLACE TABLE customer_behavior_clean (
     user_id INT,
     age INT,
     gender TEXT,
@@ -88,20 +64,6 @@ FROM customer_behavior_raw
 WHERE row_data NOT LIKE 'user_id%';
 
 
-SELECT COUNT(*) FROM customer_behavior_clean;
-SELECT * FROM customer_behavior_clean LIMIT 5;
-
-
- -- Gender distribution
-SELECT gender, COUNT(*)
-FROM customer_behavior_clean
-GROUP BY gender;
-
--- Country distribution
-SELECT country, COUNT(*)
-FROM customer_behavior_clean
-GROUP BY country
-ORDER BY COUNT(*) DESC;
 
 -- Average monthly spend
 SELECT AVG(monthly_spend) FROM customer_behavior_clean;
