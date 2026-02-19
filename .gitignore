@@ -10,10 +10,12 @@ __pycache__/
 # OS files
 .DS_Store
 Thumbs.db
-<<<<<<< HEAD
-data/e_commerce_shopper_behaviour_and_lifestyle.csv
+
 
 data/*.csv
-=======
-data/e_commerce_shopper_behaviour_and_lifestyle.csv
->>>>>>> ed407e4c04917307b287cdbab9494d6d793a7b44
+
+
+#env file
+.env
+
+

@@ -1,86 +1,65 @@
-## E-Commerce Customer Segmentation & Recommendation Project
+# E-Commerce Recommendation System  
+Database-Driven Recommendation Pipeline Using Python and PostgreSQL  
 
-#Project Overview
-This project focuses on analyzing large-scale customer behavior data (1M+ records) to perform customer segmentation and generate business insights for an e-commerce platform.
+## Description  
 
-The objective is to:
+This project implements an end-to-end ecommerce recommendation pipeline using Python and PostgreSQL. The system ingests raw product and customer behavior datasets, loads them into a relational database, performs data cleaning and transformation, and applies segmentation and rule-based recommendation logic.
 
-. Clean and preprocess raw customer data
-. Store data in PostgreSQL
-. Perform segmentation analysis
-. Generate business insights for recommendation strategies.
+Rather than analyzing flat CSV files directly, the project integrates PostgreSQL as a structured storage layer. This enables scalable querying, structured schema management, and a cleaner workflow. The pipeline is modular and implemented step-by-step through Jupyter notebooks to ensure clarity and reproducibility.
 
+---
 
+## Technologies Used  
 
+- Python 3  
+- PostgreSQL  
+- SQLAlchemy  
+- Pandas  
+- NumPy  
+- python-dotenv  
+- Jupyter Notebook  
 
-#Problem Statement
+---
 
-E-commerce platforms need to understand customer behavior to:
-. Improve targeted marketing
-. Increase engagement
-. Optimize product recommendations
-. Reduce churn
-This project builds a structured data pipeline to support these business goals.
+## Data  
 
+The project uses two CSV datasets: a product dataset and a customer behavior dataset. These files are loaded into PostgreSQL tables using SQLAlchemy for structured processing. Large raw datasets are excluded from version control due to size limitations.
 
+---
 
-# Tech Stack
+## Project Structure  
 
-. Python (Pandas, NumPy)
-. PostgreSQL
-. SQL
-. Jupyter Notebook
-. Git & GitHub
+The repository is organized into separate directories for notebooks, SQL scripts, and raw data. The `notebooks` folder contains the stepwise pipeline implementation. The `sql` folder contains schema-related scripts. Database credentials are managed securely using environment variables stored in a `.env` file.
 
+---
 
+## Installation  
 
-📂 Project Structure
+Ensure PostgreSQL is installed and running. After cloning the repository, install dependencies using:
 
+```
+pip install -r requirements.txt
+```
 
-ecommerce_recommendation_project/
-│
-├── data/                  # Raw and processed datasets
-├── notebooks/             # Jupyter notebooks
-│   ├── step1_load_data.ipynb
-│   ├── step2_data_cleaning.ipynb
-│   ├── step3_segmentation_recommendation.ipynb
-│   └── step4_business_insights_analysis.ipynb
-│
-├── sql/                   # Database setup scripts
-├── README.md
-└── .gitignore
+Create a `.env` file in the root directory and define:
 
+```
+DB_USER=your_username
+DB_PASS=your_password
+DB_HOST=localhost
+DB_NAME=your_database_name
+```
 
+Make sure the database is created before running the notebooks.
 
-# Project Workflow:
+---
 
-Phase 1: Data Loading
-. Loaded 1M+ customer records
-. Stored cleaned data into PostgreSQL
+## Usage  
 
-Phase 2: Data Cleaning
+Execute the notebooks sequentially. The initial notebook loads and inspects the data. The next notebook establishes the database connection and loads the datasets into PostgreSQL. Subsequent notebooks perform cleaning, segmentation, and recommendation logic implementation.
 
-. Removed missing values
-. Converted object columns to numeric
-. Created derived columns (age_group, income_band)
-. Generated engagement_score
+---
 
-Phase 3: Customer Segmentation
+## Summary
 
-. Segmented customers into:
-. Target Segment
-. General Segment
-. Analyzed impulse buying behavior
-. Analyzed engagement patterns
-
-Phase 4: Business Insights
-
-. Identified high engagement age groups
-. Studied income-based impulse behavior
-. Generated strategic marketing recommendations
-
-
-📊 Key Insights
-. Customers aged 26–35 show highest engagement.
-. Medium-income users show balanced impulse buying behavior.
-. Target segment contributes significantly to engagement metrics.
+This project presents a structured ecommerce recommendation pipeline built using Python and PostgreSQL. Raw product and customer behavior data are ingested, stored in a relational database, cleaned, and transformed to support segmentation and recommendation logic. The workflow follows a modular ETL approach and emphasizes secure credential management, database integration, and reproducible analysis. The implementation serves as a foundation for scalable recommendation systems and can be extended with advanced machine learning models or deployment strategies.chine learning models or deployment strategies.
