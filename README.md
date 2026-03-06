@@ -54,6 +54,14 @@ Make sure the database is created before running the notebooks.
 
 ---
 
+## Machine Learning Model
+
+A machine learning model is implemented to automatically predict the most suitable recommendation strategy for customers based on their behavioral attributes. Features such as age, engagement score, impulse buying score, return rate, and premium subscription status are used as inputs to the model.
+
+A Random Forest Classifier is trained on the processed dataset to learn patterns between customer behavior and the appropriate recommendation strategy. The trained model can then predict personalized recommendations for new customers, helping automate and improve the recommendation process in an e-commerce environment.
+
+---
+
 ## Usage  
 
 Execute the notebooks sequentially. The initial notebook loads and inspects the data. The next notebook establishes the database connection and loads the datasets into PostgreSQL. Subsequent notebooks perform cleaning, segmentation, and recommendation logic implementation.
